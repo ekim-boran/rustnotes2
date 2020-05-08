@@ -137,8 +137,7 @@ fn vecexample() {
     println!("asd")
 }
 
-
-////
+////create intoiter
 
 struct IntoIter<T> {
     buf: NonNull<T>,
@@ -187,7 +186,10 @@ impl<T> Drop for IntoIter<T> {
             let elem_size = mem::size_of::<T>();
             let num_bytes = elem_size * self.cap;
             unsafe {
-                dealloc (self.buf.as_ptr() as *mut _, Layout::from_size_align_unchecked(num_bytes, align));
+                dealloc(
+                    self.buf.as_ptr() as *mut _,
+                    Layout::from_size_align_unchecked(num_bytes, align),
+                );
             }
         }
     }
