@@ -5,6 +5,7 @@ pub struct Vector<T> {
     cap: usize,
     len: usize,
 }
+
 use std::alloc::{alloc, dealloc, realloc, Layout};
 use std::mem;
 impl<T> Vector<T> {
